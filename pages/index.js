@@ -1,4 +1,4 @@
-import { Container, Box, Link } from 'theme-ui'
+import { Container, Box, Heading, Grid, Text, Link } from 'theme-ui'
 
 export default function Index(props) { 
 
@@ -9,7 +9,7 @@ export default function Index(props) {
             tools: [
                 {
                     type: "Guide",
-                    title: "Deciding To Start A Club",
+                    title: "Deciding To Start\nA Club",
                     background: null,
                     url: "/start-a-club"
                 },
@@ -33,7 +33,7 @@ export default function Index(props) {
                 },
                 {
                     type: "Guide",
-                    title: "Getting School Approved",
+                    title: "Getting School Approval",
                     background: null,
                     url: "/teacher-sponsor"
                 }               
@@ -222,19 +222,35 @@ export default function Index(props) {
     ]
 
     return (
-        <Container>
-            <p>Club Toolbox</p>
-            <p>Tools for Every Step of Your Club Journey</p>
+        <>
+            
+            <Box sx={{paddingTop: "64px", backgroundColor: "slate", paddingBottom: "32px"}}>
+                <Container sx={{color: "#fff"}}>
+                <Heading sx={{fontSize: "52px", marginBottom: "16px"}}>Club Toolbox</Heading>
+                <Text sx={{fontSize: "24px"}}>Tools for Every Step of Your Club Journey</Text>
+                </Container>
+            </Box>
+        
+        <Container sx={{paddingBottom: "96px"}}>
             {tools.map((category) =>
-                <Box>
-                    <strong>{category.title}</strong>
+                <Box sx={{marginTop: "32px"}}>
+                    <Heading sx={{fontSize: "42px", marginBottom: "16px"}}>{category.title}</Heading>
+                    <Grid gap={4} columns={[null, '1fr 1fr', '1fr 1fr 1fr']}>
+
                     {category.tools.map((tool) => 
-                        <Link href={tool.url}>
-                        <p>{tool.title}</p>
+                        <Link sx={{ textDecoration: "none" }} href={tool.url}>
+                        <Box sx={{position: "relative", backgroundColor: category.color, padding: "48px", aspectRatio: "16/9", borderRadius: "16px", display: "flex", justifyContent: "center", alignItems: "center"}}>
+                        <Box sx={{position: "absolute", top: "12px", left: "12px", backgroundColor: "#fff", padding: "4px 12px", borderRadius: "16px"}}>
+                        <Text sx={{ color: category.color }}>{tool.type}</Text>
+                        </Box>
+                        <Text sx={{color: "#fff", fontSize: 28, fontWeight: 900, textAlign: "center"}}>{tool.title}</Text>
+                        </Box>
                         </Link>
                     )}
+                    </Grid>
                 </Box>
             )}
         </Container>
+        </>
         )
 }
