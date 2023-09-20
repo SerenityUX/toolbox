@@ -11,13 +11,13 @@ export default function Index(props) {
                     type: "Guide",
                     title: "Deciding To Start\nA Club",
                     background: null,
-                    url: "/start-a-club"
+                    url: "/guide/start-a-club"
                 },
                 {
                     type: "Guide",
                     title: "Finding a Co-leader",
                     background: null,
-                    url: "/finding-co-leader"
+                    url: "/guide/finding-co-leader"
                 },
                 {
                     type: "Application",
@@ -29,13 +29,13 @@ export default function Index(props) {
                     type: "Guide",
                     title: "Finding a Teacher Sponsor",
                     background: null,
-                    url: "/teacher-sponsor"
+                    url: "/guide/teacher-sponsor"
                 },
                 {
                     type: "Guide",
                     title: "Getting School Approval",
                     background: null,
-                    url: "/teacher-sponsor"
+                    url: "/guide/teacher-sponsor"
                 }               
             ]
         },
@@ -47,19 +47,19 @@ export default function Index(props) {
                     type: "Gift",
                     title: "Hack Club Sticker Box",
                     background: null,
-                    url: "/stickers"
+                    url: "/guide/stickers"
                 },
                 {
                     type: "Resources",
                     title: "Club Flyers & Posters",
                     background: null,
-                    url: "/club-flyers"
+                    url: "/guide/club-flyers"
                 },
                 {
                     type: "Resources",
                     title: "Club Rush Booth",
                     background: null,
-                    url: "/club-booth"
+                    url: "/guide/club-booth"
                 },
                 {
                     type: "Jam",
@@ -71,7 +71,7 @@ export default function Index(props) {
                     type: "Resources",
                     title: "Club Social Media Posts",
                     background: null,
-                    url: "/club-social-media"
+                    url: "/guide/club-social-media"
                 }             
             ]
         },
@@ -89,7 +89,7 @@ export default function Index(props) {
                     type: "Guide",
                     title: "Creating Your Own Jams",
                     background: null,
-                    url: "/create-jams"
+                    url: "/guide/create-jams"
                 },
                 {
                     type: "Community Project",
@@ -125,19 +125,19 @@ export default function Index(props) {
                     type: "Free Perk",
                     title: "Figma for Clubs",
                     background: null,
-                    url: "/figma-for-clubs"
+                    url: "/guide/figma-for-clubs"
                 },
                 {
                     type: "Free Perk",
                     title: "openAI for Clubs",
                     background: null,
-                    url: "/openAI-for-clubs"
+                    url: "/guide/openAI-for-clubs"
                 },
                 {
                     type: "Free Perk",
                     title: "Zoom Pro for Clubs",
                     background: null,
-                    url: "/zoom-for-clubs"
+                    url: "/guide/zoom-for-clubs"
                 },
                 {
                     type: "PCB Grant",
@@ -155,7 +155,7 @@ export default function Index(props) {
                     type: "Guide",
                     title: "Unblock Hacker Tools at School",
                     background: null,
-                    url: "/unblock"
+                    url: "/guide/unblock"
                 }           
             ]
         },
@@ -209,13 +209,13 @@ export default function Index(props) {
                     type: "Guide",
                     title: "How to Find New Leaders",
                     background: null,
-                    url: "/new-leaders"
+                    url: "/guide/new-leaders"
                 },
                 {
                     type: "Application",
                     title: "Club Turnover",
                     background: null,
-                    url: "/club-turnover"
+                    url: "/guide/club-turnover"
                 }         
             ]
         }
@@ -239,9 +239,10 @@ export default function Index(props) {
 
                     {category.tools.map((tool) => 
                         <Link sx={{ textDecoration: "none" }} href={tool.url}>
+
                         <Box sx={{position: "relative", backgroundColor: category.color, padding: "48px", aspectRatio: "16/9", borderRadius: "16px", display: "flex", justifyContent: "center", alignItems: "center"}}>
-                        <Box sx={{position: "absolute", top: "12px", left: "12px", backgroundColor: "#fff", padding: "4px 12px", borderRadius: "16px"}}>
-                        <Text sx={{ color: category.color }}>{tool.type}</Text>
+                        <Box sx={{position: "absolute", top: "12px", left: "12px", backgroundColor: tool.url.includes("guide") ? category.color : "#fff", border: "1px #fff solid", padding: "4px 12px", borderRadius: "16px"}}>
+                        <Text sx={{ color: !tool.url.includes("guide") ? category.color : "#fff"}}>{tool.type}</Text>
                         </Box>
                         <Text sx={{color: "#fff", fontSize: 28, fontWeight: 900, textAlign: "center"}}>{tool.title}</Text>
                         </Box>
